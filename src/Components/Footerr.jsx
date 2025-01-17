@@ -4,7 +4,7 @@ import { FaBackward, FaPlay, FaPause, FaForward, FaRedo, FaVolumeUp } from 'reac
 const Footer = () => {
     return (
         <div className="bg-black text-white p-4 flex items-center justify-between">
-            
+    
             <div className="flex items-center space-x-2">
                 <span className="text-sm">00:03</span>
                 <div className="w-[500px] h-1 bg-gray-600 rounded-full relative">

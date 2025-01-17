@@ -6,7 +6,7 @@ const Card = ({ image, title, subtitle }) => {
             <div className="p-4">
                 <h3 className="text-white text-lg font-bold truncate">{title}</h3>
                 <p className="text-gray-400 text-sm">{subtitle}</p>
-                <audio src={S1}></audio>
+                {/* <audio src={S1}></audio> */}
             </div>
         </div>
     );
