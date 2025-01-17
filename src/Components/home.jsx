@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import Card from "./card";
+import Card from "./Card";
 import Footer from "./Footer";
 import { S1 } from "../assets/songs";
 import AudioPlayer from "./audioplaying";
