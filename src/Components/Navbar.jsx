@@ -22,20 +22,20 @@ const Navbar = () => {
 
             <div className="flex items-center space-x-4">
                 <button>
-                    <span className="hidden sm:block items-center justify-center w-12 h-12 rounded-full bg-gray-800 hover:bg-gray-700 p-2">
-                        <a href="/"><img src={Home} alt="Home" className="w-[2rem] justify-center" /></a>
+                    <span className="hidden sm:block items-center justify-center w-12 h-12 rounded-full bg-[#1f1f1f] hover:bg-gray-700 p-3">
+                        <a href="/"><img src={Home} alt="Home" className="w-[1.5rem] justify-center" /></a>
                     </span>
                 </button>
 
-                <div className="flex items-center md:bg-gray-800 bg-black text-gray-400 rounded-full md:px-2 md:py-1 w-[400px] md:w-[500px]">
-                    <span className="hidden sm:block items-center justify-center w-12 h-12 bg-gray-800 rounded-full p-2">
+                <div className="flex items-center md:bg-[#1f1f1f] bg-black text-gray-400   rounded-full md:px-2  w-[400px] md:w-[500px]">
+                    <span className="hidden sm:block items-center justify-center w-12 h-12 bg-[#1f1f1f] rounded-full p-2">
                         <a href="/"><img src={Search} alt="Search" className="w-7 mr-2 text-gray-400 item center" /></a>
                     </span>
 
                     <input
                         type="text"
                         placeholder="What do you want to play?"
-                        className="hidden md:block bg-transparent outline-none text-white w-full"
+                        className="hidden md:block bg-transparent outline-none text-white w-full text-lg"
                     />
                     <span className="hidden md:block border-l border-gray-600 h-6  p-1 "></span>
                     <button className="hidden md:block items-center p-2" onClick={togglelist}>

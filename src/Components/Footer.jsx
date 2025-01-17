@@ -11,7 +11,7 @@ import {
 
 const Footer = ({ isPlaying, togglePlayPause, currentSong }) => {
     return (
-        <div className="bg-black text-white p-4 flex items-center justify-between">
+        <div className="fixed bottom-0 w-full bg-black text-white py-3 px-96 flex items-center justify-between">
             
             <div className="flex items-center space-x-4">
                 {currentSong && (
