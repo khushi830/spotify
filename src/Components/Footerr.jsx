@@ -4,7 +4,7 @@ import { FaBackward, FaPlay, FaPause, FaForward, FaRedo, FaVolumeUp } from 'reac
 const Footer = () => {
     return (
         <div className="bg-black text-white p-4 flex items-center justify-between">
-            {/* Time and Progress Bar */}
+            
             <div className="flex items-center space-x-2">
                 <span className="text-sm">00:03</span>
                 <div className="w-[500px] h-1 bg-gray-600 rounded-full relative">
@@ -13,7 +13,7 @@ const Footer = () => {
                 <span className="text-sm">05:22</span>
             </div>
 
-            {/* Playback Controls */}
+            
             <div className="flex items-center space-x-6">
                 <FaRedo className="text-xl cursor-pointer hover:text-gray-400" />
                 <FaBackward className="text-xl cursor-pointer hover:text-gray-400" />
@@ -23,7 +23,7 @@ const Footer = () => {
                 <FaForward className="text-xl cursor-pointer hover:text-gray-400" />
             </div>
 
-            {/* Volume Control */}
+            
             <div className="flex items-center space-x-2">
                 <FaVolumeUp className="text-xl cursor-pointer hover:text-gray-400" />
             </div>
