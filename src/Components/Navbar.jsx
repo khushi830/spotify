@@ -3,9 +3,13 @@ import { useState } from 'react';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [islistOpen, setIslistOpen] = useState(false);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
+    };
+    const togglelist = () => {
+        setIslistOpen(!islistOpen);
     };
 
     return (
@@ -33,10 +37,10 @@ const Navbar = () => {
                         placeholder="What do you want to play?"
                         className="hidden md:block bg-transparent outline-none text-white w-full"
                     />
-                    <span className="hidden md:block border-l border-gray-600 h-6 mx-2"></span>
-                    <button className="hidden md:block items-center">
+                    <span className="hidden md:block border-l border-gray-600 h-6  p-1 "></span>
+                    <button className="hidden md:block items-center p-2" onClick={togglelist}>
                         <a href="/">
-                            <img src={Viewbox} alt="Viewbox" className="w-[2rem]" />
+                            <img src={islistOpen ? "/path-to-close-icon.svg" : Viewbox} alt="Viewbox" className="w-[1.5rem]" />
                         </a>
                     </button>
                 </div>
@@ -51,12 +55,34 @@ const Navbar = () => {
                     <img src={isMenuOpen ? "/path-to-close-icon.svg" : Hamburger} alt="Menu Toggle" />
                 </button>
 
-                {/* Conditional Rendering with Close Button */}
+                
                 {isMenuOpen ? (
                     <div className="flex flex-col bg-gray-900 p-4 rounded-sm absolute right-0 top-16">
                         <button
                             className="text-white self-end mb-2 hover:text-gray-400"
                             onClick={toggleMenu}
+                        >
+                            ✖ 
+                        </button>
+                        <a href="/home" className="mb-2 text-white hover:text-gray-400 flex items-center">
+                            <img src={Home} alt="Home" className="w-5 h-5 mr-2" />
+                            Home
+                        </a>
+                        <a href="/search" className="mb-2 text-white hover:text-gray-400 flex items-center">
+                            <img src={Search} alt="Search" className="w-5 h-5 mr-2" />
+                            Search
+                        </a>
+                        <a href="/play" className="text-white hover:text-gray-400 flex items-center">
+                            <img src="" alt="Play Song" className="w-5 h-5 mr-2" />
+                            Play Song
+                        </a>
+                    </div>
+                ) : null}
+                {islistOpen ? (
+                    <div className="flex flex-col bg-gray-900 p-4 rounded-sm absolute right-0 top-16">
+                        <button
+                            className="text-white self-end mb-2 hover:text-gray-400"
+                            onClick={togglelist}
                         >
                             ✖ 
                         </button>
