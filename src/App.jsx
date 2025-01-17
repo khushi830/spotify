@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from './Components/Navbar'
-import Sidebar from "./Components/sidebar";
-import Home from "./Components/home";
+import Sidebar from "./Components/Sidebar";
+import Home from "./Components/Home";
 
 const App = () =>{
   return(
