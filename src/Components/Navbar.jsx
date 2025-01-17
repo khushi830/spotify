@@ -86,18 +86,7 @@ const Navbar = () => {
                         >
                             ✖ 
                         </button>
-                        <a href="/home" className="mb-2 text-white hover:text-gray-400 flex items-center">
-                            <img src={Home} alt="Home" className="w-5 h-5 mr-2" />
-                            Home
-                        </a>
-                        <a href="/search" className="mb-2 text-white hover:text-gray-400 flex items-center">
-                            <img src={Search} alt="Search" className="w-5 h-5 mr-2" />
-                            Search
-                        </a>
-                        <a href="/play" className="text-white hover:text-gray-400 flex items-center">
-                            <img src="" alt="Play Song" className="w-5 h-5 mr-2" />
-                            Play Song
-                        </a>
+                        <li></li>
                     </div>
                 ) : null}
             </div>
