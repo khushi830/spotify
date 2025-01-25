@@ -1,96 +1,121 @@
-import { Logo, Home, Search, Viewbox, Hamburger } from '../assets';
-import { useState } from 'react';
+import { useState } from "react";
+import { Logo, Hamburger, Spotify } from "../assets";
+import { Home, Viewbox, Search, Install, Cross, Songsign } from "../assets";
+
 
 const Navbar = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [islistOpen, setIslistOpen] = useState(false);
+    const [Isopen, setIsopen] = useState(false);
+    const togglemenu = () => {
+        setIsopen(!Isopen);
+    };
+    const navItems = [
+        { id: 1, text: 'Spotify' },
+        { id: 2, text: 'Home' },
+        { id: 3, text: 'Search' },
 
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
-    const togglelist = () => {
-        setIslistOpen(!islistOpen);
-    };
+
+    ];
 
     return (
-        <nav className="flex justify-between bg-black h-auto fixed top-0 w-full items-center px-3 py-2">
-            <div className="flex items-center">
-                <a href="/">
-                    <img src={Logo} alt="Spotify Logo" className="w-[1rem] sm:w-[3rem]" />
-                </a>
+        <div className="flex cursor-auto justify-between items-center sticky top-0 z-[20] -m-4 bg-[#000000] w-full h-[64px]  p-[12px]">
+
+            <div className="hidden md:block">
+                <div className="  flex items-center">
+                    <a href="/">
+                        <img src={Logo} alt="logo" className="w-[3rem]" />
+                    </a>
+                </div>
             </div>
-
-            <div className="flex items-center space-x-4">
-                <button>
-                    <span className="hidden sm:block items-center justify-center w-12 h-12 rounded-full bg-[#1f1f1f] hover:bg-gray-700 p-3">
-                        <a href="/"><img src={Home} alt="Home" className="w-[1.5rem] justify-center" /></a>
-                    </span>
-                </button>
-
-                <div className="flex items-center md:bg-[#1f1f1f] bg-black text-gray-400   rounded-full md:px-2  w-[400px] md:w-[500px]">
-                    <span className="hidden sm:block items-center justify-center w-12 h-12 bg-[#1f1f1f] rounded-full p-2">
-                        <a href="/"><img src={Search} alt="Search" className="w-7 mr-2 text-gray-400 item center" /></a>
-                    </span>
-
-                    <input
-                        type="text"
-                        placeholder="What do you want to play?"
-                        className="hidden md:block bg-transparent outline-none text-white w-full text-lg"
-                    />
-                    <span className="hidden md:block border-l border-gray-600 h-6  p-1 "></span>
-                    <button className="hidden md:block items-center p-2" onClick={togglelist}>
-                        <a href="/">
-                            <img src={islistOpen ? "/path-to-close-icon.svg" : Viewbox} alt="Viewbox" className="w-[1.5rem]" />
-                        </a>
-                    </button>
+            <div className="block md:hidden">
+                <div className="  flex items-center gap-6">
+                    <a href="/" className="flex justify-center items-center text-[#fff] gap-3 font-bold p-[4px]  mx-2">
+                        <img src={Logo} alt="logo" className="w-[3rem]" />
+                        <span>Spotify</span>
+                    </a>
+                    <span className=" bg-[#1F1F1F]  rounded-full"><a href="/"><img src={Search} alt="Search" className=" w-[3rem] p-[8px] md:w-[4rem] md:px-[12px]" /></a></span>
                 </div>
             </div>
 
-            <div className="flex space-x-4">
-                <button className="hidden sm:block text-gray-400 hover:text-white">Sign up</button>
-                <button className="hidden sm:block bg-white text-black px-4 py-2 rounded-full hover:bg-gray-200">
-                    <span>Log in</span>
-                </button>
-                <button className="block sm:hidden text-2xl font-bold" onClick={toggleMenu}>
-                    <img src={isMenuOpen ? "/path-to-close-icon.svg" : Hamburger} alt="Menu Toggle" />
-                </button>
 
-                
-                {isMenuOpen ? (
-                    <div className="flex flex-col bg-gray-900 p-4 rounded-sm absolute right-0 top-16">
-                        <button
-                            className="text-white self-end mb-2 hover:text-gray-400"
-                            onClick={toggleMenu}
-                        >
-                            ✖ 
-                        </button>
-                        <a href="/home" className="mb-2 text-white hover:text-gray-400 flex items-center">
-                            <img src={Home} alt="Home" className="w-5 h-5 mr-2" />
-                            Home
-                        </a>
-                        <a href="/search" className="mb-2 text-white hover:text-gray-400 flex items-center">
-                            <img src={Search} alt="Search" className="w-5 h-5 mr-2" />
-                            Search
-                        </a>
-                        <a href="/play" className="text-white hover:text-gray-400 flex items-center">
-                            <img src="" alt="Play Song" className="w-5 h-5 mr-2" />
-                            Play Song
-                        </a>
-                    </div>
-                ) : null}
-                {islistOpen ? (
-                    <div className="flex flex-col bg-gray-900 p-4 rounded-sm absolute right-0 top-16">
-                        <button
-                            className="text-white self-end mb-2 hover:text-gray-400"
-                            onClick={togglelist}
-                        >
-                            ✖ 
-                        </button>
-                        <li></li>
-                    </div>
-                ) : null}
+            <div className="flex items-center">
+                <button className="hidden md:block bg-[#1F1F1F] p-[12px] rounded-full">
+                    <a href="/">
+                        <img src={Home} alt="home" className="w-[24px] h-full" />
+                    </a>
+                </button>
+                <div className="hidden md:block  items-center px-[8px] bg-black md:bg-[#1F1F1F]  w-[360px] md:w-[400px] lg:w-[500px] h-full g-[#1F1F1F] rounded-full md:ml-2">
+                    <span className="flex justify-center items-center">
+                        <span className="bg-[#1F1F1F]  rounded-full"><a href="/"><img src={Search} alt="Search" className=" w-[3rem] p-[8px] md:w-[4rem] md:px-[12px]" /></a></span>
+                        <input
+                            type="text"
+                            placeholder="What do you want to play?"
+                            className=" hidden md:block text-white placeholder-[#7c7c7c] bg-[#1F1F1F]  outline-none w-full  h-[48px] md:p-[12px] rounded-full"
+                        />
+                        <div className=" hidden md:block items-center px-[12px]">
+                            <span className="h-full w-[10px] bg-[#7c7c7c]"> </span>
+                            <a href="/">
+                                <img src={Viewbox} alt="Viewbox" className="w-[16px] h-[16px] ml-2 fill-[#faebd7]" />
+                            </a>
+                        </div>
+                    </span>
+                </div>
+
             </div>
-        </nav>
+
+
+            <span className="hidden md:block">
+                <div className="flex items-center h-[48px]">
+                    <a
+                        href="/"
+                        className="hidden lg:block  items-center text-[#B3B3B3] font-bold p-[4px] mx-2"
+                    >
+                        <span className="flex justify-center items-center"><img src={Install} alt="Install" className="w-[16px] h-[16px] mr-2" />
+                            <span>Install</span></span>
+                    </a>
+                    <button className="text-[#B3B3B3] mx-2">Sign Up</button>
+                    <button className="bg-[#FFFFFF] text-[#000000] px-[24px] py-[8px]  font-bold rounded-full">
+                        Log in
+                    </button>
+                </div>
+            </span>
+            <div className="  flex justify-center md:hidden items-center">
+                <a href="/" className="flex justify-center items-center gap-6">
+                    <button className="bg-[#FFFFFF] text-[#000000] px-[20px] py-[8px]  font-bold rounded-full">
+                        Open App
+                    </button>
+                    <button onClick={togglemenu} style={{ zIndex: 1000 }}>
+                        <img src={Isopen ? Cross : Hamburger} alt="hamburger" className="w-[2rem]" />
+                    </button>
+
+                </a>
+            </div>
+            {Isopen ? (
+                <div
+                    className={`fixed md:hidden left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500 ${Isopen ? "translate-x-0" : "-translate-x-full"
+                        }`}
+                >
+                    <a href="/" className="mb-2 text-white font-bold hover:text-gray-400 flex items-center">
+                        <img src={Logo} alt="Home" className="w-5 h-5 mr-2" />
+                        Spotify
+                    </a>
+                    <a href="/" className="mb-2 text-white hover:text-gray-400 flex items-center">
+                        <img src={Home} alt="Home" className="w-5 h-5 mr-2" />
+                        Home
+                    </a>
+                    <a href="/search" className="mb-2 text-white hover:text-gray-400 flex items-center">
+                        <img src={Search} alt="Search" className="w-5 h-5 mr-2" />
+                        Search
+                    </a>
+                    <a href="/play" className="text-white hover:text-gray-400 flex items-center">
+                        <img src={Songsign} alt="Play Song" className="w-5 h-5 mr-2" />
+                        Play Song
+                    </a>
+                </div>
+            ) : null}
+
+
+
+        </div>
     );
 };
 
