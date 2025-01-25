@@ -18,7 +18,7 @@ const App = () => {
         
         <div
           className={`transition-all duration-300 bg-black h-screen text-white ${
-            isSidebarOpen ? "w-1/4" : "w-0"
+            isSidebarOpen ? "w-1/4" : "w-[70px]"
           } `}
         >
           <Sidebar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />

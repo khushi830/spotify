@@ -16,7 +16,7 @@ const Navbar = () => {
         <nav className="flex justify-between bg-black h-auto fixed top-0 w-full items-center px-3 py-2">
             <div className="flex items-center">
                 <a href="/">
-                    <img src={Logo} alt="Spotify Logo" className="w-[3rem]" />
+                    <img src={Logo} alt="Spotify Logo" className="w-[1rem] sm:w-[3rem]" />
                 </a>
             </div>
 
@@ -51,7 +51,7 @@ const Navbar = () => {
                 <button className="hidden sm:block bg-white text-black px-4 py-2 rounded-full hover:bg-gray-200">
                     <span>Log in</span>
                 </button>
-                <button className="sm:hidden text-2xl font-bold" onClick={toggleMenu}>
+                <button className="block sm:hidden text-2xl font-bold" onClick={toggleMenu}>
                     <img src={isMenuOpen ? "/path-to-close-icon.svg" : Hamburger} alt="Menu Toggle" />
                 </button>
 

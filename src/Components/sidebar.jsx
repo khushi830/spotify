@@ -23,7 +23,7 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
       {isSidebarOpen ? (
         <div
           className={`h-screen transition-all duration-300 fixed top-0 left-0 bg-black text-white p-3 flex flex-col justify-between overflow-auto custom-scrollbar mt-16 ${
-            isSidebarOpen ? "w-1/4" : "w-0"
+            isSidebarOpen ? "w-1/4" : "w-[70px]"
           }`}
         >
           <div className="bg-[#121212] rounded-sm w-full h-full">
