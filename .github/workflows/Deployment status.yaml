@@ -27,7 +27,7 @@ jobs:
           server_port: 587
           username: ${{ secrets.MAIL_USERNAME }}
           password: ${{ secrets.MAIL_PASSWORD }}
-          subject: 🎉 Deployment Successful
+          subject: Deployment Successful
           body: The GitHub Action build and deployment was successful!
           to: khushid830@gmail.com
           from: khushid830@gmail.com
