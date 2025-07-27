@@ -1,55 +1,33 @@
-name: CI Build and Notify
+name: Deployment Status
 
 on:
   push:
     branches:
       - main
-  pull_request:
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
-      - name: Install Dependencies
+      - name: Install dependencies
         run: npm install
 
-      - name: Run Build
+      - name: Build project
         run: npm run build
 
-  notify:
-    needs: build
-    runs-on: ubuntu-latest
-    if: success()
-
-    steps:
-      - name: Send Success Email
+      - name: Send success email
+        if: success()
         uses: dawidd6/action-send-mail@v6
         with:
-          # ✅ Use connection_url format for simplicity (secure & clear)
-          connection_url: ${{ secrets.MAIL_CONNECTION }}
-
-          # ✅ Sender and recipient
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: 🎉 Deployment Successful
+          body: The GitHub Action build and deployment was successful!
           to: khushid830@gmail.com
-          from: CI Bot <noreply@example.com>
-
-          # ✅ Email content
-          subject: ✅ Build Success - ${{ github.repository }}
-          body: |
-            Hello Khushi 👋,
-
-            The latest build for **${{ github.repository }}** on branch **${{ github.ref }}** has completed successfully!
-
-            ✅ Commit: ${{ github.sha }}
-            📦 Triggered by: ${{ github.actor }}
-            🔗 Check the build: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-
-            — GitHub Actions CI
+          from: khushid830@gmail.com
