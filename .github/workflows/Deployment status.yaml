@@ -1,52 +1,55 @@
-name: Deploy dist folder
+name: CI Build and Notify
 
-on: push
+on:
+  push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '18'
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: npm install
 
-      - name: Build project
+      - name: Run Build
         run: npm run build
 
   notify:
-    if: success()   # ✅ Trigger only if build job succeeds
     needs: build
     runs-on: ubuntu-latest
+    if: success()
+
     steps:
-      - name: Send success mail
+      - name: Send Success Email
         uses: dawidd6/action-send-mail@v6
-        env:
-          HTTP_PROXY: http://proxy.example.test:3128  # Optional
         with:
-          connection_url: ${{secrets.MAIL_CONNECTION}}
-          server_address: smtp.gmail.com
-          server_port: 465
-          secure: true
-          username: ${{secrets.MAIL_USERNAME}}
-          password: ${{secrets.MAIL_PASSWORD}}
-          subject: ✅ Build Succeeded - ${{github.repository}}
+          # ✅ Use connection_url format for simplicity (secure & clear)
+          connection_url: ${{ secrets.MAIL_CONNECTION }}
+
+          # ✅ Sender and recipient
           to: khushid830@gmail.com
           from: CI Bot <noreply@example.com>
+
+          # ✅ Email content
+          subject: ✅ Build Success - ${{ github.repository }}
           body: |
             Hello Khushi 👋,
 
-            The **build job** for your repository `${{github.repository}}` has **completed successfully** 🎉.
+            The latest build for **${{ github.repository }}** on branch **${{ github.ref }}** has completed successfully!
 
-            You can view the workflow details here:
-            👉 https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}
+            ✅ Commit: ${{ github.sha }}
+            📦 Triggered by: ${{ github.actor }}
+            🔗 Check the build: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
-            Regards,  
-            GitHub Actions Bot
-          convert_markdown: true
+            — GitHub Actions CI
